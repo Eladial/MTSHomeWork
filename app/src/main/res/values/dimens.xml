@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_corner_radius">40dp</dimen>
+    <dimen name="card_margin_top">200dp</dimen>
+    <dimen name="default_indent">20dp</dimen>
+    <dimen name="star_top_indent">8dp</dimen>
+    <dimen name="star_side_indent">2dp</dimen>
+    <dimen name="bottom_btn_indent">12dp</dimen>
+    <dimen name="bottom_btn_side_indent">60dp</dimen>
+    <dimen name="actor_name_indent">12dp</dimen>
+    <dimen name="card_indent">10dp</dimen>
+    <dimen name="small_text_size">10sp</dimen>
+    <dimen name="medium_text_size">12sp</dimen>
+    <dimen name="big_text_size">14sp</dimen>
+    <dimen name="x_big_text_size">16sp</dimen>
+    <dimen name="xx_big_text_size">20sp</dimen>
+</resources>
