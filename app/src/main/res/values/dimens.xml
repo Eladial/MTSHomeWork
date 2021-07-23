@@ -3,8 +3,9 @@
     <dimen name="card_corner_radius">40dp</dimen>
     <dimen name="card_margin_top">200dp</dimen>
     <dimen name="default_indent">20dp</dimen>
+    <dimen name="genre_indent">12dp</dimen>
     <dimen name="star_top_indent">8dp</dimen>
-    <dimen name="star_side_indent">2dp</dimen>
+    <dimen name="star_side_indent">1dp</dimen>
     <dimen name="bottom_btn_indent">12dp</dimen>
     <dimen name="bottom_btn_side_indent">60dp</dimen>
     <dimen name="actor_name_indent">12dp</dimen>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1">
+
+    <ImageView
+        android:id="@+id/iv_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/default_indent"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_search"
+        android:contentDescription="@string/image_description_search" />
+
+    <TextView
+        android:id="@+id/tv_popular_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="72dp"
+        android:layout_marginStart="@dimen/default_indent"
+        android:textColor="@color/black"
+        android:textSize="@dimen/x_big_text_size"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:text="@string/popular_now" />
+
+    <HorizontalScrollView
+        android:id="@+id/sv_genres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_popular_now"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_indent"
+            android:paddingEnd="@dimen/default_indent">
+
+            <TextView
+                android:id="@+id/tv_genre_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/genre_indent"
+                android:background="@drawable/ic_rect_genre"
+                android:paddingEnd="@dimen/genre_indent"
+                android:paddingStart="@dimen/genre_indent"
+                android:gravity="center"
+                android:text="@string/movie_details_genre_action"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_genre_drama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="@dimen/genre_indent"
+                android:background="@drawable/ic_rect_genre"
+                android:paddingEnd="@dimen/genre_indent"
+                android:paddingStart="@dimen/genre_indent"
+                android:gravity="center"
+                android:text="@string/movie_details_genre_drama"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toEndOf="@id/tv_genre_action"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_genre_comedy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="@dimen/genre_indent"
+                android:background="@drawable/ic_rect_genre"
+                android:paddingEnd="@dimen/genre_indent"
+                android:paddingStart="@dimen/genre_indent"
+                android:gravity="center"
+                android:text="@string/movie_details_genre_comedy"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toEndOf="@id/tv_genre_drama"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_genre_art_house"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="@dimen/genre_indent"
+                android:background="@drawable/ic_rect_genre"
+                android:paddingEnd="@dimen/genre_indent"
+                android:paddingStart="@dimen/genre_indent"
+                android:gravity="center"
+                android:text="@string/movie_details_genre_art_house"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toEndOf="@id/tv_genre_comedy"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_genre_melodramas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="@dimen/genre_indent"
+                android:background="@drawable/ic_rect_genre"
+                android:paddingEnd="@dimen/genre_indent"
+                android:paddingStart="@dimen/genre_indent"
+                android:gravity="center"
+                android:text="@string/movie_details_genre_melodramas"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toEndOf="@id/tv_genre_art_house"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_genre_documentaries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="@dimen/genre_indent"
+                android:background="@drawable/ic_rect_genre"
+                android:paddingEnd="@dimen/genre_indent"
+                android:paddingStart="@dimen/genre_indent"
+                android:gravity="center"
+                android:text="@string/movie_details_genre_documentaries"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toEndOf="@id/tv_genre_melodramas"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/sv_genres"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/default_indent"
+        android:paddingBottom="150dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"/>
+
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/ivHome"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivProfile"
+        android:background="@color/white"
+        android:src="@drawable/ic_menu_home"
+        android:paddingTop="@dimen/bottom_btn_indent"
+        android:paddingBottom="@dimen/bottom_btn_indent"
+        android:paddingEnd="@dimen/bottom_btn_side_indent"
+        tools:ignore="RtlSymmetry"
+        android:contentDescription="@string/image_description_home" />
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:src="@drawable/ic_menu_profile"
+        android:paddingTop="@dimen/bottom_btn_indent"
+        android:paddingBottom="@dimen/bottom_btn_indent"
+        android:paddingStart="@dimen/bottom_btn_side_indent"
+        android:contentDescription="@string/image_description_profile"
+        tools:ignore="RtlSymmetry" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/ivHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/image_description_line" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

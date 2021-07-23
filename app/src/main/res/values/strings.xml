@@ -5,7 +5,12 @@
     <string name="image_description_profile">Profile</string>
     <string name="image_description_line">Line</string>
     <string name="image_description_home">Home</string>
-    <string name="movie_details_genre">боевики</string>
+    <string name="movie_details_genre_action">боевики</string>
+    <string name="movie_details_genre_drama">драмы</string>
+    <string name="movie_details_genre_comedy">комедии</string>
+    <string name="movie_details_genre_art_house">артхаус</string>
+    <string name="movie_details_genre_melodramas">мелодрамы</string>
+    <string name="movie_details_genre_documentaries">документальные</string>
     <string name="movie_details_date">22.04.2021</string>
     <string name="rating_18">18+</string>
     <string name="movie_details_name">Гнев человеческий</string>
@@ -18,4 +23,7 @@
     <string name="statham_name">Джейсон Стэйтем</string>
     <string name="image_description_actor_statham">Actor Statham</string>
     <string name="actors">Актеры</string>
+    <string name="image_description_search">Search</string>
+    <string name="popular_now">Популярное сейчас</string>
+    <string name="image_description_film_poster">Film Poster</string>
 </resources>
