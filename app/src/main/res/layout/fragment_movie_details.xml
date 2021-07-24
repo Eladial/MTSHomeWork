@@ -8,7 +8,7 @@
     android:background="#F1F1F1">
 
     <ImageView
-        android:id="@+id/iv_search_button"
+        android:id="@+id/ivSearchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +19,7 @@
         android:contentDescription="@string/image_description_search" />
 
     <TextView
-        android:id="@+id/tv_popular_now"
+        android:id="@+id/tvPopularNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,10 +33,10 @@
         android:text="@string/popular_now" />
 
     <HorizontalScrollView
-        android:id="@+id/sv_genres"
+        android:id="@+id/svGenres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_popular_now"
+        app:layout_constraintTop_toBottomOf="@id/tvPopularNow"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +46,7 @@
             android:paddingEnd="@dimen/default_indent">
 
             <TextView
-                android:id="@+id/tv_genre_action"
+                android:id="@+id/tvGenreAction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/genre_indent"
@@ -61,8 +61,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
+
             <TextView
-                android:id="@+id/tv_genre_drama"
+                android:id="@+id/svGenreDrama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -75,11 +76,12 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto"
                 android:textSize="@dimen/small_text_size"
-                app:layout_constraintStart_toEndOf="@id/tv_genre_action"
+                app:layout_constraintStart_toEndOf="@id/tvGenreAction"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
+
             <TextView
-                android:id="@+id/tv_genre_comedy"
+                android:id="@+id/tvGenreComedy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -92,11 +94,12 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto"
                 android:textSize="@dimen/small_text_size"
-                app:layout_constraintStart_toEndOf="@id/tv_genre_drama"
+                app:layout_constraintStart_toEndOf="@id/svGenreDrama"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
+
             <TextView
-                android:id="@+id/tv_genre_art_house"
+                android:id="@+id/tvGenreArtHouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -109,11 +112,12 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto"
                 android:textSize="@dimen/small_text_size"
-                app:layout_constraintStart_toEndOf="@id/tv_genre_comedy"
+                app:layout_constraintStart_toEndOf="@id/tvGenreComedy"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
+
             <TextView
-                android:id="@+id/tv_genre_melodramas"
+                android:id="@+id/tvGenreMelodramas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -126,11 +130,12 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto"
                 android:textSize="@dimen/small_text_size"
-                app:layout_constraintStart_toEndOf="@id/tv_genre_art_house"
+                app:layout_constraintStart_toEndOf="@id/tvGenreArtHouse"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
+
             <TextView
-                android:id="@+id/tv_genre_documentaries"
+                android:id="@+id/tvGenreDocumentaries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -143,33 +148,26 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto"
                 android:textSize="@dimen/small_text_size"
-                app:layout_constraintStart_toEndOf="@id/tv_genre_melodramas"
+                app:layout_constraintStart_toEndOf="@id/tvGenreMelodramas"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </HorizontalScrollView>
-
-
-
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/sv_genres"
+        app:layout_constraintTop_toBottomOf="@id/svGenres"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="@dimen/default_indent"
         android:paddingBottom="150dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"/>
-
-
-
-
-
 
 
     <ImageView
@@ -186,6 +184,7 @@
         android:paddingEnd="@dimen/bottom_btn_side_indent"
         tools:ignore="RtlSymmetry"
         android:contentDescription="@string/image_description_home" />
+
     <ImageView
         android:id="@+id/ivProfile"
         android:layout_width="0dp"
@@ -200,6 +199,7 @@
         android:paddingStart="@dimen/bottom_btn_side_indent"
         android:contentDescription="@string/image_description_profile"
         tools:ignore="RtlSymmetry" />
+
     <ImageView
         android:layout_width="0dp"
         android:layout_height="2dp"
@@ -208,5 +208,6 @@
         app:layout_constraintEnd_toEndOf="@id/ivHome"
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="@string/image_description_line" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

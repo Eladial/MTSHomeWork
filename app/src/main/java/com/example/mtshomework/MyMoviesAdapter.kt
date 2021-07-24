@@ -57,22 +57,39 @@ class MyMoviesAdapter(context: Context,
                     iconStarOne.setImageResource(R.drawable.ic_star)
                 }
                 4 -> {
+                    iconStarFive.setImageResource(R.drawable.ic_star_empty)
                     iconStarFour.setImageResource(R.drawable.ic_star)
                     iconStarThree.setImageResource(R.drawable.ic_star)
                     iconStarTwo.setImageResource(R.drawable.ic_star)
                     iconStarOne.setImageResource(R.drawable.ic_star)
                 }
                 3 -> {
+                    iconStarFive.setImageResource(R.drawable.ic_star_empty)
+                    iconStarFour.setImageResource(R.drawable.ic_star_empty)
                     iconStarThree.setImageResource(R.drawable.ic_star)
                     iconStarTwo.setImageResource(R.drawable.ic_star)
                     iconStarOne.setImageResource(R.drawable.ic_star)
                 }
                 2 -> {
+                    iconStarFive.setImageResource(R.drawable.ic_star_empty)
+                    iconStarFour.setImageResource(R.drawable.ic_star_empty)
+                    iconStarThree.setImageResource(R.drawable.ic_star_empty)
                     iconStarTwo.setImageResource(R.drawable.ic_star)
                     iconStarOne.setImageResource(R.drawable.ic_star)
                 }
                 1 -> {
+                    iconStarFive.setImageResource(R.drawable.ic_star_empty)
+                    iconStarFour.setImageResource(R.drawable.ic_star_empty)
+                    iconStarThree.setImageResource(R.drawable.ic_star_empty)
+                    iconStarTwo.setImageResource(R.drawable.ic_star_empty)
                     iconStarOne.setImageResource(R.drawable.ic_star)
+                }
+                else -> {
+                    iconStarFive.setImageResource(R.drawable.ic_star_empty)
+                    iconStarFour.setImageResource(R.drawable.ic_star_empty)
+                    iconStarThree.setImageResource(R.drawable.ic_star_empty)
+                    iconStarTwo.setImageResource(R.drawable.ic_star_empty)
+                    iconStarOne.setImageResource(R.drawable.ic_star_empty)
                 }
             }
 

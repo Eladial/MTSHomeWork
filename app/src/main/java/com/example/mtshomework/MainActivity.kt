@@ -14,14 +14,10 @@ class MainActivity : AppCompatActivity() {
         val movies = prepareMovies()
         val adapter = MyMoviesAdapter(this, this::moviesListener, movies)
         recycler.adapter = adapter
-
-
     }
 
     private fun prepareMovies(): List<MovieDto> {
-        val m = MoviesDataSourceImpl()
-        return m.getMovies()
-
+        return MoviesDataSourceImpl().getMovies()
     }
 
     private fun moviesListener(item: MovieDto) {
