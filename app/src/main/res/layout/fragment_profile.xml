@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:paddingBottom="64dp"
+        >
+
+        <TextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_name"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_email"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:src="@drawable/ic_avatar"
+            android:contentDescription="@string/image_description_avatar" />
+
+        <TextView
+            android:id="@+id/tvProfileInterests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="160dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/interests"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvGenreAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_indent"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/ic_rect_genre"
+            android:paddingEnd="@dimen/genre_indent"
+            android:paddingStart="@dimen/genre_indent"
+            android:gravity="center"
+            android:text="@string/movie_details_genre_action"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileInterests"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/svGenreDrama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/ic_rect_genre"
+            android:paddingEnd="@dimen/genre_indent"
+            android:paddingStart="@dimen/genre_indent"
+            android:gravity="center"
+            android:text="@string/movie_details_genre_drama"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintStart_toEndOf="@id/tvGenreAction"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileInterests"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/tvGenreComedy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/ic_rect_genre"
+            android:paddingEnd="@dimen/genre_indent"
+            android:paddingStart="@dimen/genre_indent"
+            android:gravity="center"
+            android:text="@string/movie_details_genre_comedy"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintStart_toEndOf="@id/svGenreDrama"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileInterests"
+            tools:ignore="SmallSp" />
+
+
+        <TextView
+            android:id="@+id/tvProfilePersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvGenreAction"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/personal_data"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_name"
+            android:layout_marginStart="@dimen/default_indent"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textColorHint="#C4C4C4"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvProfilePersonal"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hint_name"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_pass"
+            android:layout_marginStart="@dimen/default_indent"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textColorHint="#C4C4C4"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/etName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:hint="@string/hint_pass"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_email"
+            android:layout_marginStart="@dimen/default_indent"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textColorHint="#C4C4C4"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/etPass"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:hint="@string/hint_email"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_indent"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textColorHint="#C4C4C4"
+            android:backgroundTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:hint="@string/hint_phone"
+            />
+
+
+        <TextView
+            android:id="@+id/tvProfileSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/etPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_settings"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvProfileNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileSettings"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_notifications"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileSettings"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+        <TextView
+            android:id="@+id/tvProfileConfidentiality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileNotifications"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_confidentiality"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileNotifications"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+        <TextView
+            android:id="@+id/tvProfileTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileConfidentiality"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_theme"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileConfidentiality"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+        <TextView
+            android:id="@+id/tvProfileLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_language"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileTheme"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+        <TextView
+            android:id="@+id/tvProfileData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileLanguage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_data"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileLanguage"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+
+        <TextView
+            android:id="@+id/tvProfileApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileData"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_application"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvProfileQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileApp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_question"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileApp"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+        <TextView
+            android:id="@+id/tvProfileProblem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileQuestion"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/default_indent"
+            android:layout_marginStart="@dimen/default_indent"
+            android:text="@string/profile_problem"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileQuestion"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/image_description_arrow" />
+
+
+        <Button
+            app:layout_constraintTop_toBottomOf="@id/tvProfileProblem"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="@dimen/default_indent"
+            android:layout_marginEnd="@dimen/default_indent"
+            android:backgroundTint="#C4C4C4"
+            android:text="@string/profile_logout"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:layout_marginTop="56dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

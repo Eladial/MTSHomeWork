@@ -184,8 +184,8 @@
                     android:id="@+id/horizontalScrollView"
                     app:layout_constraintTop_toBottomOf="@id/tvActors"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:scrollbars="none"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="16dp"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:id="@+id/llScrollView"
@@ -298,5 +298,5 @@
         </ScrollView>
 
     </com.google.android.material.card.MaterialCardView>
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
