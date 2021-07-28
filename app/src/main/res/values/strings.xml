@@ -26,4 +26,29 @@
     <string name="image_description_search">Search</string>
     <string name="popular_now">Популярное сейчас</string>
     <string name="image_description_film_poster">Film Poster</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_name">Константин</string>
+    <string name="profile_email">konst.89@mail.com</string>
+    <string name="image_description_avatar">avatar</string>
+    <string name="interests">Интересы</string>
+    <string name="personal_data">Личные данные</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_pass">Пароль</string>
+    <string name="profile_pass">************</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Телефон</string>
+    <string name="profile_settings">Настройки</string>
+    <string name="profile_notifications">Уведомления и звуки</string>
+    <string name="image_description_arrow">arrow</string>
+    <string name="profile_confidentiality">Конфеденциальность</string>
+    <string name="profile_theme">Тема</string>
+    <string name="profile_language">Язык</string>
+    <string name="profile_data">Данные и память</string>
+    <string name="profile_application">Приложение</string>
+    <string name="profile_question">Задать вопрос</string>
+    <string name="profile_problem">Сообщить о проблеме</string>
+    <string name="profile_logout">Выйти</string>
 </resources>
