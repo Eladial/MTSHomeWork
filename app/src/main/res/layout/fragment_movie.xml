@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imgStatham"
+        android:id="@+id/ivPoster"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,110 +39,85 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="48dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvGenre"
-                    android:layout_marginStart="@dimen/default_indent"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/ic_rect_genre"
-                    android:gravity="center"
-                    android:text="@string/movie_details_genre_action"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/small_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SmallSp" />
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvDate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/movie_details_date"
-                    android:layout_marginStart="92dp"
-                    android:layout_marginTop="32dp"
-                    android:fontFamily="@font/roboto"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/medium_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_rating"
+                    android:id="@+id/tvRating"
                     android:background="@drawable/ic_circle_rating"
-                    android:text="@string/rating_18"
+                    tools:text="18+"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="@dimen/default_indent"
-                    android:layout_marginTop="42dp"
+                    android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:textColor="@color/black"
                     android:fontFamily="@font/roboto"
                     android:textSize="@dimen/big_text_size" />
 
                 <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_indent"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@string/movie_details_name"
+                    tools:text="Гнев человеческий"
                     android:textColor="@color/black"
                     android:textSize="@dimen/xx_big_text_size"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDate" />
+                     />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/iv_star_one"
+                    android:id="@+id/ivStarOne"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvName"
                     android:layout_marginStart="@dimen/default_indent"
                     android:layout_marginTop="@dimen/star_top_indent"
-                    android:background="@drawable/ic_star"
+                    android:background="@drawable/ic_star_empty"
                     android:contentDescription="@string/image_description_star" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/iv_star_two"
-                    app:layout_constraintStart_toEndOf="@id/iv_star_one"
+                    android:id="@+id/ivStarTwo"
+                    app:layout_constraintStart_toEndOf="@id/ivStarOne"
                     app:layout_constraintTop_toBottomOf="@id/tvName"
                     android:layout_marginStart="@dimen/star_side_indent"
                     android:layout_marginTop="@dimen/star_top_indent"
-                    android:background="@drawable/ic_star"
+                    android:background="@drawable/ic_star_empty"
                     android:contentDescription="@string/image_description_star" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/iv_star_three"
-                    app:layout_constraintStart_toEndOf="@id/iv_star_two"
+                    android:id="@+id/ivStarThree"
+                    app:layout_constraintStart_toEndOf="@id/ivStarTwo"
                     app:layout_constraintTop_toBottomOf="@id/tvName"
                     android:layout_marginStart="@dimen/star_side_indent"
                     android:layout_marginTop="@dimen/star_top_indent"
-                    android:background="@drawable/ic_star"
+                    android:background="@drawable/ic_star_empty"
                     android:contentDescription="@string/image_description_star" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/iv_star_four"
-                    app:layout_constraintStart_toEndOf="@id/iv_star_three"
+                    android:id="@+id/ivStarFour"
+                    app:layout_constraintStart_toEndOf="@id/ivStarThree"
                     app:layout_constraintTop_toBottomOf="@id/tvName"
                     android:layout_marginStart="@dimen/star_side_indent"
                     android:layout_marginTop="@dimen/star_top_indent"
-                    android:background="@drawable/ic_star"
+                    android:background="@drawable/ic_star_empty"
                     android:contentDescription="@string/image_description_star" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/iv_star_five"
-                    app:layout_constraintStart_toEndOf="@id/iv_star_four"
+                    android:id="@+id/ivStarFive"
+                    app:layout_constraintStart_toEndOf="@id/ivStarFour"
                     app:layout_constraintTop_toBottomOf="@id/tvName"
                     android:layout_marginStart="@dimen/star_side_indent"
                     android:layout_marginTop="@dimen/star_top_indent"
@@ -153,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvDescription"
-                    app:layout_constraintTop_toBottomOf="@id/iv_star_one"
+                    app:layout_constraintTop_toBottomOf="@id/ivStarOne"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="@dimen/default_indent"
@@ -162,136 +137,11 @@
                     android:fontFamily="@font/roboto"
                     android:textColor="@color/black"
                     android:textSize="@dimen/big_text_size"
-                    android:text="@string/movie_details_film_description"/>
+                    tools:text="Это описание фильма текст текс текст ектс тек с етк ст текк"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvActors"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDescription"
-                    android:layout_marginStart="@dimen/default_indent"
-                    android:layout_marginTop="36dp"
-                    android:text="@string/actors"
-                    android:fontFamily="@font/roboto"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/x_big_text_size"
-                    android:textStyle="bold" />
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/horizontalScrollView"
-                    app:layout_constraintTop_toBottomOf="@id/tvActors"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp"
-                    android:scrollbars="none">
 
-                    <LinearLayout
-                        android:id="@+id/llScrollView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/llStatham"
-                            android:layout_marginStart="@dimen/default_indent">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:cardCornerRadius="10dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@mipmap/actor_statham"
-                                    android:maxWidth="150dp"
-                                    android:background="@color/white"
-                                    android:contentDescription="@string/image_description_actor_statham" />
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/statham_name"
-                                android:fontFamily="@font/roboto"
-                                android:layout_marginTop="@dimen/actor_name_indent"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/medium_text_size"
-                                android:textColor="@color/black" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginStart="@dimen/card_indent"
-                            android:id="@+id/llMcCallany">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:cardCornerRadius="10dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@mipmap/actor_mccallany"
-                                    android:maxWidth="150dp"
-                                    android:contentDescription="@string/image_description_actor_mccallany" />
-
-                            </androidx.cardview.widget.CardView>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mccallany_name"
-                                android:fontFamily="@font/roboto"
-                                android:layout_marginTop="@dimen/actor_name_indent"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/medium_text_size"
-                                android:textColor="@color/black" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginStart="@dimen/card_indent"
-                            android:layout_marginEnd="@dimen/card_indent"
-                            android:id="@+id/llHartnett">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:cardCornerRadius="10dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@mipmap/actor_hartnett"
-                                    android:maxWidth="150dp"
-                                    android:contentDescription="@string/image_description_actor_hartnett" />
-
-                            </androidx.cardview.widget.CardView>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/hartnett_name"
-                                android:fontFamily="@font/roboto"
-                                android:layout_marginTop="@dimen/actor_name_indent"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/medium_text_size"
-                                android:textColor="@color/black" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

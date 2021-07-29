@@ -1,59 +1,98 @@
 package com.example.mtshomework
 
+import android.annotation.SuppressLint
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import coil.load
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MovieFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MovieFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie, container, false)
+        val view = inflater.inflate(R.layout.fragment_movie, container, false)
+
+        val title = view.findViewById<TextView>(R.id.tvName)
+        val poster = view.findViewById<ImageView>(R.id.ivPoster)
+        val description = view.findViewById<TextView>(R.id.tvDescription)
+        val rating = view.findViewById<TextView>(R.id.tvRating)
+        val starOne = view.findViewById<ImageView>(R.id.ivStarOne)
+        val starTwo = view.findViewById<ImageView>(R.id.ivStarTwo)
+        val starThree = view.findViewById<ImageView>(R.id.ivStarThree)
+        val starFour = view.findViewById<ImageView>(R.id.ivStarFour)
+        val starFive = view.findViewById<ImageView>(R.id.ivStarFive)
+
+        val position = arguments?.getInt(ARG_MOVIE_DATA)
+        val movie = MoviesDataSourceImpl().getMovies()[position!!]
+        title.text = movie.title
+        poster.load(movie.imageUrl)
+        description.text = movie.description
+        rating.text = movie.ageRestriction.toString() + "+"
+        when (movie.rateScore){
+            5 -> {
+                starFive.setImageResource(R.drawable.ic_star)
+                starFour.setImageResource(R.drawable.ic_star)
+                starThree.setImageResource(R.drawable.ic_star)
+                starTwo.setImageResource(R.drawable.ic_star)
+                starOne.setImageResource(R.drawable.ic_star)
+            }
+            4 -> {
+                starFive.setImageResource(R.drawable.ic_star_empty)
+                starFour.setImageResource(R.drawable.ic_star)
+                starThree.setImageResource(R.drawable.ic_star)
+                starTwo.setImageResource(R.drawable.ic_star)
+                starOne.setImageResource(R.drawable.ic_star)
+            }
+            3 -> {
+                starFive.setImageResource(R.drawable.ic_star_empty)
+                starFour.setImageResource(R.drawable.ic_star_empty)
+                starThree.setImageResource(R.drawable.ic_star)
+                starTwo.setImageResource(R.drawable.ic_star)
+                starOne.setImageResource(R.drawable.ic_star)
+            }
+            2 -> {
+                starFive.setImageResource(R.drawable.ic_star_empty)
+                starFour.setImageResource(R.drawable.ic_star_empty)
+                starThree.setImageResource(R.drawable.ic_star_empty)
+                starTwo.setImageResource(R.drawable.ic_star)
+                starOne.setImageResource(R.drawable.ic_star)
+            }
+            1 -> {
+                starFive.setImageResource(R.drawable.ic_star_empty)
+                starFour.setImageResource(R.drawable.ic_star_empty)
+                starThree.setImageResource(R.drawable.ic_star_empty)
+                starTwo.setImageResource(R.drawable.ic_star_empty)
+                starOne.setImageResource(R.drawable.ic_star)
+            }
+            else -> {
+                starFive.setImageResource(R.drawable.ic_star_empty)
+                starFour.setImageResource(R.drawable.ic_star_empty)
+                starThree.setImageResource(R.drawable.ic_star_empty)
+                starTwo.setImageResource(R.drawable.ic_star_empty)
+                starOne.setImageResource(R.drawable.ic_star_empty)
+            }
+        }
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MovieFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(movie_data: Int) =
             MovieFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_MOVIE_DATA, movie_data)
                 }
             }
     }
 }
+
+private const val ARG_MOVIE_DATA = "movie_data"

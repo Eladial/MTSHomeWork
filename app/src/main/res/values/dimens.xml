@@ -17,4 +17,8 @@
     <dimen name="xx_big_text_size">20sp</dimen>
     <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
+    <dimen name="search_indent">32dp</dimen>
+    <dimen name="popular_indent">72dp</dimen>
+    <dimen name="genre_side_indent">6dp</dimen>
+    <dimen name="rv_indent">16dp</dimen>
 </resources>
