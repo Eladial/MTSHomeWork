@@ -34,7 +34,7 @@ class MovieFragment : Fragment() {
         val movie = MoviesDataSourceImpl().getMovies()[position!!]
         title.text = movie.title
         poster.load(movie.imageUrl)
-        description.text = movie.description
+        description.text = movie.full_description
         rating.text = movie.ageRestriction.toString() + "+"
         when (movie.rateScore){
             5 -> {

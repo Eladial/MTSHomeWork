@@ -21,4 +21,5 @@
     <dimen name="popular_indent">72dp</dimen>
     <dimen name="genre_side_indent">6dp</dimen>
     <dimen name="rv_indent">16dp</dimen>
+    <dimen name="genre_bottom_indent">2dp</dimen>
 </resources>
