@@ -172,7 +172,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/rv_indent"
         android:layout_marginStart="@dimen/default_indent"
-        android:paddingBottom="150dp"
+        android:paddingBottom="200dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"/>
 
