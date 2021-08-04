@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,6 +16,7 @@ import kotlinx.coroutines.withContext
 
 class MovieDetailsFragment : Fragment() {
     private lateinit var adapter: MyMoviesAdapter
+    private lateinit var swipeRefresh: SwipeRefreshLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,10 @@ class MovieDetailsFragment : Fragment() {
         val movies = prepareMovies()
         adapter = MyMoviesAdapter(view.context, this::moviesListener, movies)
         recycler.adapter = adapter
+        swipeRefresh = view.findViewById(R.id.swipe_container)
+        swipeRefresh.setOnRefreshListener {
+            updateMovies()
+        }
         return view
     }
 
@@ -40,12 +46,13 @@ class MovieDetailsFragment : Fragment() {
     private fun updateMovies(){
         CoroutineScope(Dispatchers.IO).launch() {
             Thread.sleep(2)
-            val movies = prepareMovies()
+            val movies = prepareMovies().shuffled()
             val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies(), movies))
             adapter.setMovies(movies)
 
             withContext(Dispatchers.Main) {
                 differ.dispatchUpdatesTo(adapter)
+                swipeRefresh.isRefreshing = false
             }
         }
     }
