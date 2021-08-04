@@ -12,7 +12,7 @@ import coil.load
 
 class MyMoviesAdapter(context: Context,
                       private val moviesListener: (Int) -> Unit,
-                      private val movies: List<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
+                      private var movies: List<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
@@ -30,6 +30,12 @@ class MyMoviesAdapter(context: Context,
 
 
     override fun getItemCount(): Int = movies.size
+
+    fun getMovies(): List<MovieDto> = movies
+
+    fun setMovies(new: List<MovieDto>) {
+        movies = new
+    }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         private val textTitle: TextView = view.findViewById(R.id.tv_film_name)
