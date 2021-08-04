@@ -17,13 +17,14 @@ import kotlinx.coroutines.withContext
 class MovieDetailsFragment : Fragment() {
     private lateinit var adapter: MyMoviesAdapter
     private lateinit var swipeRefresh: SwipeRefreshLayout
+    private lateinit var recycler: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
-        val recycler = view.findViewById<RecyclerView>(R.id.recycler)
+        recycler = view.findViewById(R.id.recycler)
         val movies = prepareMovies()
         adapter = MyMoviesAdapter(view.context, this::moviesListener, movies)
         recycler.adapter = adapter
@@ -52,6 +53,7 @@ class MovieDetailsFragment : Fragment() {
 
             withContext(Dispatchers.Main) {
                 differ.dispatchUpdatesTo(adapter)
+                recycler.scrollToPosition(0)
                 swipeRefresh.isRefreshing = false
             }
         }
