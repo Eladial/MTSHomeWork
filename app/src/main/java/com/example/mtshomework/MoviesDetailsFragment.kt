@@ -1,6 +1,7 @@
 package com.example.mtshomework
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,16 +9,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 
 class MovieDetailsFragment : Fragment() {
     private lateinit var adapter: MyMoviesAdapter
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recycler: RecyclerView
+    val coroutineExceptionHandler = CoroutineExceptionHandler{_, exc ->
+        Log.d("coroutine", "$exc")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +46,7 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun updateMovies(){
-        CoroutineScope(Dispatchers.IO).launch() {
+        CoroutineScope(Dispatchers.IO).launch(coroutineExceptionHandler) {
             Thread.sleep(2)
             val movies = prepareMovies().shuffled()
             val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies(), movies))
