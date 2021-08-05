@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 
 class MyMoviesAdapter(context: Context,
-                      private val moviesListener: (MovieDto) -> Unit,
+                      private val moviesListener: (Int) -> Unit,
                       private val movies: List<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,7 +24,7 @@ class MyMoviesAdapter(context: Context,
         holder.bind(getItem(position))
 
         holder.itemView.setOnClickListener{
-            moviesListener(movies[position])
+            moviesListener(position)
         }
     }
 
@@ -35,12 +35,12 @@ class MyMoviesAdapter(context: Context,
         private val textTitle: TextView = view.findViewById(R.id.tv_film_name)
         private val textDescription: TextView = view.findViewById(R.id.tv_film_description)
         private val iconPoster: ImageView = view.findViewById(R.id.iv_film_poster)
-        private val textAge: TextView = view.findViewById(R.id.tv_rating)
-        private val iconStarOne: ImageView = view.findViewById(R.id.iv_star_one)
-        private val iconStarTwo: ImageView = view.findViewById(R.id.iv_star_two)
-        private val iconStarThree: ImageView = view.findViewById(R.id.iv_star_three)
-        private val iconStarFour: ImageView = view.findViewById(R.id.iv_star_four)
-        private val iconStarFive: ImageView = view.findViewById(R.id.iv_star_five)
+        private val textAge: TextView = view.findViewById(R.id.tvRating)
+        private val iconStarOne: ImageView = view.findViewById(R.id.ivStarOne)
+        private val iconStarTwo: ImageView = view.findViewById(R.id.ivStarTwo)
+        private val iconStarThree: ImageView = view.findViewById(R.id.ivStarThree)
+        private val iconStarFour: ImageView = view.findViewById(R.id.ivStarFour)
+        private val iconStarFive: ImageView = view.findViewById(R.id.ivStarFive)
 
         @SuppressLint("SetTextI18n")
         fun bind(movie: MovieDto) {

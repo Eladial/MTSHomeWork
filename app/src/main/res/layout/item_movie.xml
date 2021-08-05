@@ -50,7 +50,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iv_star_one"
+        android:id="@+id/ivStarOne"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_film_poster"
         android:layout_marginStart="4dp"
@@ -61,8 +61,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iv_star_two"
-        app:layout_constraintStart_toEndOf="@id/iv_star_one"
+        android:id="@+id/ivStarTwo"
+        app:layout_constraintStart_toEndOf="@id/ivStarOne"
         app:layout_constraintTop_toBottomOf="@id/iv_film_poster"
         android:layout_marginStart="@dimen/star_side_indent"
         android:layout_marginTop="132dp"
@@ -72,8 +72,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iv_star_three"
-        app:layout_constraintStart_toEndOf="@id/iv_star_two"
+        android:id="@+id/ivStarThree"
+        app:layout_constraintStart_toEndOf="@id/ivStarTwo"
         app:layout_constraintTop_toBottomOf="@id/iv_film_poster"
         android:layout_marginStart="@dimen/star_side_indent"
         android:layout_marginTop="132dp"
@@ -83,8 +83,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iv_star_four"
-        app:layout_constraintStart_toEndOf="@id/iv_star_three"
+        android:id="@+id/ivStarFour"
+        app:layout_constraintStart_toEndOf="@id/ivStarThree"
         app:layout_constraintTop_toBottomOf="@id/iv_film_poster"
         android:layout_marginStart="@dimen/star_side_indent"
         android:layout_marginTop="132dp"
@@ -94,8 +94,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iv_star_five"
-        app:layout_constraintStart_toEndOf="@id/iv_star_four"
+        android:id="@+id/ivStarFive"
+        app:layout_constraintStart_toEndOf="@id/ivStarFour"
         app:layout_constraintTop_toBottomOf="@id/iv_film_poster"
         android:layout_marginStart="@dimen/star_side_indent"
         android:layout_marginTop="132dp"
@@ -106,7 +106,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_rating"
+        android:id="@+id/tvRating"
         android:background="@drawable/ic_circle_rating_item"
         tools:text="18+"
         app:layout_constraintTop_toBottomOf="@id/iv_film_poster"
