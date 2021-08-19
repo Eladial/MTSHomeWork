@@ -139,10 +139,6 @@
                     android:textSize="@dimen/big_text_size"
                     tools:text="Это описание фильма текст текс текст ектс тек с етк ст текк"/>
 
-
-
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

@@ -2,6 +2,7 @@ package com.example.mtshomework
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import coil.load
 
 class MyMoviesAdapter(context: Context,
                       private val moviesListener: (Int) -> Unit,
-                      private var movies: List<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
+                      private val movies: MutableList<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
@@ -31,10 +32,15 @@ class MyMoviesAdapter(context: Context,
 
     override fun getItemCount(): Int = movies.size
 
-    fun getMovies(): List<MovieDto> = movies
+    fun getMovies(): MutableList<MovieDto> = movies
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setMovies(new: List<MovieDto>) {
-        movies = new
+        with(movies){
+            clear()
+            addAll(new)
+        }
+        notifyDataSetChanged()
     }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
