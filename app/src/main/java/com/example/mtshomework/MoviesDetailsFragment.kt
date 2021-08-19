@@ -33,7 +33,7 @@ class MovieDetailsFragment : Fragment() {
         recycler = view.findViewById(R.id.recycler)
         val movies = prepareMovies()
         adapter = MyMoviesAdapter(view.context, this::moviesListener,
-            movies as MutableList<MovieDto>
+            movies.toMutableList()
         )
         recycler.adapter = adapter
         swipeRefresh = view.findViewById(R.id.swipe_container)
