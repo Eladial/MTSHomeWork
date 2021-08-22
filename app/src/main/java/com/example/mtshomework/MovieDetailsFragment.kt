@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -14,10 +15,11 @@ import kotlinx.coroutines.*
 
 
 class MovieDetailsFragment : Fragment() {
+    private val movieViewModel = MovieDetailsViewModel()
     private lateinit var adapter: MyMoviesAdapter
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recycler: RecyclerView
-    val coroutineExceptionHandler = CoroutineExceptionHandler{_, exc ->
+    private val coroutineExceptionHandler = CoroutineExceptionHandler{ _, exc ->
         Log.d("coroutine", "$exc")
     }
 
@@ -40,6 +42,7 @@ class MovieDetailsFragment : Fragment() {
         swipeRefresh.setOnRefreshListener {
             updateMovies()
         }
+        movieViewModel.movies.observe(viewLifecycleOwner, Observer(adapter::setMovies))
     }
 
     private fun prepareMovies(): List<MovieDto> {
@@ -53,12 +56,11 @@ class MovieDetailsFragment : Fragment() {
 
     private fun updateMovies(){
         CoroutineScope(Dispatchers.IO).launch(coroutineExceptionHandler) {
-            SystemClock.sleep(2000)
-            val movies = prepareMovies().shuffled()
+            movieViewModel.updateMovies()
 
             withContext(Dispatchers.Main) {
-                val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies(), movies))
-                adapter.setMovies(movies)
+                val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies(), movieViewModel.movies.value!!))
+                adapter.setMovies(movieViewModel.movies.value!!)
                 differ.dispatchUpdatesTo(adapter)
                 recycler.scrollToPosition(0)
                 swipeRefresh.isRefreshing = false
