@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
     }
+
 }
 
 private const val TAG_FRAGMENT = "FRAGMENT"

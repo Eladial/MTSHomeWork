@@ -1,7 +1,6 @@
 package com.example.mtshomework
 
 import android.os.Bundle
-import android.os.SystemClock
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,9 +48,9 @@ class MovieDetailsFragment : Fragment() {
         return MoviesDataSourceImpl().getMovies()
     }
 
-    private fun moviesListener(item: Int) {
+    private fun moviesListener(id: Int) {
         val fragmentManager = parentFragmentManager
-        fragmentManager.beginTransaction().add(R.id.container_view, MovieFragment.newInstance(item), "FRAGMENT").addToBackStack(null).commit()
+        fragmentManager.beginTransaction().add(R.id.container_view, MovieFragment.newInstance(prepareMovies().find { it.id == id }!!), "FRAGMENT").addToBackStack(null).commit()
     }
 
     private fun updateMovies(){

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mag52/AndroidStudioProjects/MTSHomeWork/app/src/main/res/drawable/ic_avatar.xml" value="0.16535087719298244" />
+        <entry key="..\:/Users/mag52/AndroidStudioProjects/MTSHomeWork/app/src/main/res/layout/activity_main.xml" value="0.15217391304347827" />
         <entry key="..\:/Users/mag52/AndroidStudioProjects/MTSHomeWork/app/src/main/res/layout/activity_movie_details.xml" value="0.17017543859649123" />
         <entry key="..\:/Users/mag52/AndroidStudioProjects/MTSHomeWork/app/src/main/res/layout/fragment_movie.xml" value="0.17017543859649123" />
         <entry key="..\:/Users/mag52/AndroidStudioProjects/MTSHomeWork/app/src/main/res/layout/fragment_movie_details.xml" value="0.25" />

@@ -30,8 +30,7 @@ class MovieFragment : Fragment() {
         val starFour = view.findViewById<ImageView>(R.id.ivStarFour)
         val starFive = view.findViewById<ImageView>(R.id.ivStarFive)
 
-        val position = arguments?.getInt(ARG_MOVIE_DATA)
-        val movie = MoviesDataSourceImpl().getMovies()[position!!]
+        val movie: MovieDto = arguments?.getParcelable(ARG_MOVIE_DATA)!!
         title.text = movie.title
         poster.load(movie.imageUrl)
         description.text = movie.full_description
@@ -85,10 +84,10 @@ class MovieFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(movie_data: Int) =
+        fun newInstance(movie_data: MovieDto) =
             MovieFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_MOVIE_DATA, movie_data)
+                    putParcelable(ARG_MOVIE_DATA, movie_data)
                 }
             }
     }
