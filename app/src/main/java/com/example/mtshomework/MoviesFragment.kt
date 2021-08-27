@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -18,6 +20,8 @@ class MoviesFragment : Fragment() {
     private lateinit var adapter: MoviesAdapter
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recycler: RecyclerView
+    private lateinit var navController: NavController
+
     private val coroutineExceptionHandler = CoroutineExceptionHandler{ _, exc ->
         Log.d("coroutine", "$exc")
     }
@@ -42,6 +46,7 @@ class MoviesFragment : Fragment() {
             updateMovies()
         }
         movieViewModel.movies.observe(viewLifecycleOwner, Observer(adapter::setMovies))
+        navController = view.findNavController()
     }
 
     private fun prepareMovies(): List<MovieDto> {
@@ -49,8 +54,11 @@ class MoviesFragment : Fragment() {
     }
 
     private fun moviesListener(id: Int) {
-        val fragmentManager = parentFragmentManager
-        fragmentManager.beginTransaction().add(R.id.container_view, MovieFragment.newInstance(prepareMovies().find { it.id == id }!!), "FRAGMENT").addToBackStack(null).commit()
+        val bundle = Bundle()
+        bundle.putParcelable("movie_data", prepareMovies().find {it.id == id })
+        navController.navigate(R.id.action_movieFragment_to_movieDetailsFragment, bundle)
+
+
     }
 
     private fun updateMovies(){
