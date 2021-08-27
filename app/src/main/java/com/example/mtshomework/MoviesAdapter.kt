@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 
-class MyMoviesAdapter(context: Context,
-                      private val moviesListener: (Int) -> Unit,
-                      private val movies: MutableList<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
+class MoviesAdapter(context: Context,
+                    private val moviesListener: (Int) -> Unit,
+                    private val movies: MutableList<MovieDto>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
@@ -55,7 +55,7 @@ class MyMoviesAdapter(context: Context,
             iconPoster.load(movie.imageUrl)
             textTitle.text = movie.title
             textDescription.text = movie.description
-            textAge.text = movie.ageRestriction.toString() + "+"
+            textAge.text = movie.ageRestriction.toString() + itemView.resources.getString(R.string.plus)
 
             itemView.setOnClickListener {
                 moviesListener(movie.id)

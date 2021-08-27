@@ -15,7 +15,7 @@ import kotlinx.coroutines.*
 
 class MoviesFragment : Fragment() {
     private val movieViewModel = MoviesViewModel()
-    private lateinit var adapter: MyMoviesAdapter
+    private lateinit var adapter: MoviesAdapter
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recycler: RecyclerView
     private val coroutineExceptionHandler = CoroutineExceptionHandler{ _, exc ->
@@ -26,14 +26,14 @@ class MoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_movie_details, container, false)
+        return inflater.inflate(R.layout.fragment_movies, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recycler = view.findViewById(R.id.recycler)
         val movies = prepareMovies()
-        adapter = MyMoviesAdapter(view.context, this::moviesListener,
+        adapter = MoviesAdapter(view.context, this::moviesListener,
             movies.toMutableList()
         )
         recycler.adapter = adapter
