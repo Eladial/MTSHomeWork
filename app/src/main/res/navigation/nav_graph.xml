@@ -16,7 +16,7 @@
         android:label="ProfileFragment" />
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.example.mtshomework.MovieDetailsFragment"
+        android:name="com.example.mtshomework.MoviesFragment"
         android:label="MovieDetailsFragment" >
         <action
             android:id="@+id/action_movieDetailsFragment_to_movieFragment"

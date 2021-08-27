@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MovieDetailsViewModel: ViewModel() {
+class MoviesViewModel: ViewModel() {
 
     val movies: LiveData<List<MovieDto>> get() = _movies
     private val _movies = MutableLiveData<List<MovieDto>>()

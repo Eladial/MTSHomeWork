@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.example.mtshomework.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private var fragment: MovieDetailsFragment? = null
+    private var fragment: MoviesFragment? = null
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,13 +15,13 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigation = binding.bottomNavigation
         if (savedInstanceState == null)
-            supportFragmentManager.beginTransaction().replace(R.id.container_view, MovieDetailsFragment(), TAG_FRAGMENT).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.container_view, MoviesFragment(), TAG_FRAGMENT).commit()
         else
-            fragment = supportFragmentManager.findFragmentByTag(TAG_FRAGMENT) as? MovieDetailsFragment
+            fragment = supportFragmentManager.findFragmentByTag(TAG_FRAGMENT) as? MoviesFragment
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.container_view, MovieDetailsFragment(), TAG_FRAGMENT).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.container_view, MoviesFragment(), TAG_FRAGMENT).commit()
                     return@setOnItemSelectedListener true
                 }
                 R.id.profile -> {
