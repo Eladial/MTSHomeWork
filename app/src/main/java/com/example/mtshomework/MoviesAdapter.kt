@@ -2,7 +2,6 @@ package com.example.mtshomework
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 
-class MyMoviesAdapter(context: Context,
-                      private val moviesListener: (Int) -> Unit,
-                      private val movies: MutableList<MovieDto>): RecyclerView.Adapter<MyMoviesAdapter.ViewHolder>() {
+class MoviesAdapter(context: Context,
+                    private val moviesListener: (Int) -> Unit,
+                    private val movies: MutableList<MovieDto>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
@@ -22,11 +21,7 @@ class MyMoviesAdapter(context: Context,
     private fun getItem(position: Int): MovieDto = movies[position]
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
-
-        holder.itemView.setOnClickListener{
-            moviesListener(position)
-        }
+        holder.bind(getItem(position), moviesListener)
     }
 
 
@@ -54,12 +49,17 @@ class MyMoviesAdapter(context: Context,
         private val iconStarFour: ImageView = view.findViewById(R.id.ivStarFour)
         private val iconStarFive: ImageView = view.findViewById(R.id.ivStarFive)
 
+
         @SuppressLint("SetTextI18n")
-        fun bind(movie: MovieDto) {
+        fun bind(movie: MovieDto, moviesListener: (Int) -> Unit) {
             iconPoster.load(movie.imageUrl)
             textTitle.text = movie.title
             textDescription.text = movie.description
-            textAge.text = movie.ageRestriction.toString() + "+"
+            textAge.text = movie.ageRestriction.toString() + itemView.resources.getString(R.string.plus)
+
+            itemView.setOnClickListener {
+                moviesListener(movie.id)
+            }
             when (movie.rateScore){
                 5 -> {
                     iconStarFive.setImageResource(R.drawable.ic_star)
@@ -104,6 +104,8 @@ class MyMoviesAdapter(context: Context,
                     iconStarOne.setImageResource(R.drawable.ic_star_empty)
                 }
             }
+
+
 
         }
     }

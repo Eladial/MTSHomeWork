@@ -18,7 +18,7 @@ class MovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_movie, container, false)
+        val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
 
         val title = view.findViewById<TextView>(R.id.tvName)
         val poster = view.findViewById<ImageView>(R.id.ivPoster)
@@ -30,13 +30,12 @@ class MovieFragment : Fragment() {
         val starFour = view.findViewById<ImageView>(R.id.ivStarFour)
         val starFive = view.findViewById<ImageView>(R.id.ivStarFive)
 
-        val position = arguments?.getInt(ARG_MOVIE_DATA)
-        val movie = MoviesDataSourceImpl().getMovies()[position!!]
+        val movie: MovieDto = arguments?.getParcelable(ARG_MOVIE_DATA)!!
         title.text = movie.title
         poster.load(movie.imageUrl)
         description.text = movie.full_description
         rating.text = movie.ageRestriction.toString() + "+"
-        when (movie.rateScore){
+        when (movie.rateScore) {
             5 -> {
                 starFive.setImageResource(R.drawable.ic_star)
                 starFour.setImageResource(R.drawable.ic_star)
@@ -85,10 +84,10 @@ class MovieFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(movie_data: Int) =
+        fun newInstance(movieData: MovieDto) =
             MovieFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_MOVIE_DATA, movie_data)
+                    putParcelable(ARG_MOVIE_DATA, movieData)
                 }
             }
     }
