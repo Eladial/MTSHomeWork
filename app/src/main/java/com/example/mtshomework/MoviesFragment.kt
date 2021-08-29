@@ -55,7 +55,7 @@ class MoviesFragment : Fragment() {
 
     private fun moviesListener(id: Int) {
         val bundle = Bundle()
-        bundle.putParcelable("movie_data", prepareMovies().find {it.id == id })
+        bundle.putParcelable(ARG_MOVIE_DATA, prepareMovies().find {it.id == id })
         navController.navigate(R.id.action_movieFragment_to_movieDetailsFragment, bundle)
 
 
@@ -80,3 +80,5 @@ class MoviesFragment : Fragment() {
         fun newInstance() = MoviesFragment()
     }
 }
+
+private const val ARG_MOVIE_DATA = "movie_data"
