@@ -7,34 +7,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 
 class MoviesAdapter(context: Context,
-                    private val moviesListener: (Int) -> Unit,
-                    private val movies: MutableList<MovieDto>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+                    private val moviesListener: (Long) -> Unit,
+                    private val moviesViewModel: MoviesViewModel
+): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
     }
 
-    private fun getItem(position: Int): MovieDto = movies[position]
+    private fun getItem(position: Int): Movie? = moviesViewModel.movies.value?.get(position)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), moviesListener)
+        getItem(position)?.let { holder.bind(it, moviesListener) }
     }
 
 
-    override fun getItemCount(): Int = movies.size
+    override fun getItemCount(): Int{
+        return if (moviesViewModel.movies.value?.size != null) {
+            moviesViewModel.movies.value?.size!!
+        } else 0
+    }
 
-    fun getMovies(): MutableList<MovieDto> = movies
+    fun getMovies(): List<Movie>? = moviesViewModel.movies.value
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setMovies(new: List<MovieDto>) {
-        with(movies){
-            clear()
-            addAll(new)
-        }
+    fun setMovies(new: List<Movie>) {
         notifyDataSetChanged()
     }
 
@@ -51,14 +54,14 @@ class MoviesAdapter(context: Context,
 
 
         @SuppressLint("SetTextI18n")
-        fun bind(movie: MovieDto, moviesListener: (Int) -> Unit) {
+        fun bind(movie: Movie, moviesListener: (Long) -> Unit) {
             iconPoster.load(movie.imageUrl)
             textTitle.text = movie.title
             textDescription.text = movie.description
             textAge.text = movie.ageRestriction.toString() + itemView.resources.getString(R.string.plus)
 
             itemView.setOnClickListener {
-                moviesListener(movie.id)
+                moviesListener(movie.id!!)
             }
             when (movie.rateScore){
                 5 -> {

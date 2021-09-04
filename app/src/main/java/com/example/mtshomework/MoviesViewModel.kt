@@ -1,5 +1,6 @@
 package com.example.mtshomework
 
+import android.content.Context
 import android.os.SystemClock
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,17 +8,24 @@ import androidx.lifecycle.ViewModel
 
 class MoviesViewModel: ViewModel() {
 
-    val movies: LiveData<List<MovieDto>> get() = _movies
-    private val _movies = MutableLiveData<List<MovieDto>>()
+    val movies: LiveData<List<Movie>> get() = _movies
+    private val _movies = MutableLiveData<List<Movie>>()
+
+    private var database: AppDatabase? = null
+
+    fun initDatabase(context: Context){
+        database = AppDatabase.getInstance(context)
+        if (database?.movieDao()?.getAll()?.size == 0)
+            database?.movieDao()?.insertAll(MoviesDataSourceImpl().getMovies())
+    }
 
 
-    private fun prepareMovies(): List<MovieDto> {
-        return MoviesDataSourceImpl().getMovies()
+    fun prepareMovies() {
+        _movies.postValue(database?.movieDao()?.getAll())
     }
 
     fun updateMovies() {
         SystemClock.sleep(2000)
-        val movies = prepareMovies().shuffled()
-        _movies.postValue(movies)
+        _movies.postValue(database?.movieDao()?.getAll()?.shuffled())
     }
 }
