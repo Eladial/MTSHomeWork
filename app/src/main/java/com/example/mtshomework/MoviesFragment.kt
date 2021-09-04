@@ -36,9 +36,10 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recycler = view.findViewById(R.id.recycler)
-        val movies = prepareMovies()
+        movieViewModel.initDatabase(requireContext())
+        movieViewModel.prepareMovies()
         adapter = MoviesAdapter(view.context, this::moviesListener,
-            movies.toMutableList()
+            movieViewModel
         )
         recycler.adapter = adapter
         swipeRefresh = view.findViewById(R.id.swipe_container)
@@ -49,11 +50,11 @@ class MoviesFragment : Fragment() {
         navController = view.findNavController()
     }
 
-    private fun prepareMovies(): List<MovieDto> {
+    private fun prepareMovies(): List<Movie> {
         return MoviesDataSourceImpl().getMovies()
     }
 
-    private fun moviesListener(id: Int) {
+    private fun moviesListener(id: Long) {
         val bundle = Bundle()
         bundle.putParcelable(ARG_MOVIE_DATA, prepareMovies().find {it.id == id })
         navController.navigate(R.id.action_movieFragment_to_movieDetailsFragment, bundle)
@@ -66,7 +67,7 @@ class MoviesFragment : Fragment() {
             movieViewModel.updateMovies()
 
             withContext(Dispatchers.Main) {
-                val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies(), movieViewModel.movies.value!!))
+                val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies()!!, movieViewModel.movies.value!!))
                 adapter.setMovies(movieViewModel.movies.value!!)
                 differ.dispatchUpdatesTo(adapter)
                 recycler.scrollToPosition(0)

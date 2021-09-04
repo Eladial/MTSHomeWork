@@ -30,10 +30,10 @@ class MovieFragment : Fragment() {
         val starFour = view.findViewById<ImageView>(R.id.ivStarFour)
         val starFive = view.findViewById<ImageView>(R.id.ivStarFive)
 
-        val movie: MovieDto = arguments?.getParcelable(ARG_MOVIE_DATA)!!
+        val movie: Movie = arguments?.getParcelable(ARG_MOVIE_DATA)!!
         title.text = movie.title
         poster.load(movie.imageUrl)
-        description.text = movie.full_description
+        description.text = movie.fullDescription
         rating.text = movie.ageRestriction.toString() + "+"
         when (movie.rateScore) {
             5 -> {
