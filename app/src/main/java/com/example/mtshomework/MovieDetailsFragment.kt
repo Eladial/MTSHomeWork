@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import coil.load
+import com.bumptech.glide.Glide
+import kotlin.math.roundToInt
 
 
 class MovieFragment : Fragment() {
@@ -19,23 +21,23 @@ class MovieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
-
+        val description = view.findViewById<TextView>(R.id.tvDescription)
         val title = view.findViewById<TextView>(R.id.tvName)
         val poster = view.findViewById<ImageView>(R.id.ivPoster)
-        val description = view.findViewById<TextView>(R.id.tvDescription)
-        val rating = view.findViewById<TextView>(R.id.tvRating)
         val starOne = view.findViewById<ImageView>(R.id.ivStarOne)
         val starTwo = view.findViewById<ImageView>(R.id.ivStarTwo)
         val starThree = view.findViewById<ImageView>(R.id.ivStarThree)
         val starFour = view.findViewById<ImageView>(R.id.ivStarFour)
         val starFive = view.findViewById<ImageView>(R.id.ivStarFive)
 
-        val movie: Movie = arguments?.getParcelable(ARG_MOVIE_DATA)!!
+
+
+        val movie: MovieResponse = arguments?.getParcelable(ARG_MOVIE_DATA)!!
+        val rateScore = (movie.voteAverage / 2).roundToInt()
         title.text = movie.title
-        poster.load(movie.imageUrl)
-        description.text = movie.fullDescription
-        rating.text = movie.ageRestriction.toString() + "+"
-        when (movie.rateScore) {
+        description.text = movie.overview
+        Glide.with(poster).load("https://image.tmdb.org/t/p/w500" + movie.posterPath).into(poster)
+        when (rateScore) {
             5 -> {
                 starFive.setImageResource(R.drawable.ic_star)
                 starFour.setImageResource(R.drawable.ic_star)

@@ -50,8 +50,9 @@ class MoviesFragment : Fragment() {
         navController = view.findNavController()
     }
 
-    private fun prepareMovies(): List<Movie> {
-        return MoviesDataSourceImpl().getMovies()
+    private fun prepareMovies(): List<MovieResponse> {
+        movieViewModel.prepareMovies()
+        return movieViewModel.movies.value!!
     }
 
     private fun moviesListener(id: Long) {
@@ -68,7 +69,7 @@ class MoviesFragment : Fragment() {
 
             withContext(Dispatchers.Main) {
                 val differ = DiffUtil.calculateDiff(MoviesCallback(adapter.getMovies()!!, movieViewModel.movies.value!!))
-                adapter.setMovies(movieViewModel.movies.value!!)
+                adapter.setMovies(movieViewModel.movies.value)
                 differ.dispatchUpdatesTo(adapter)
                 recycler.scrollToPosition(0)
                 swipeRefresh.isRefreshing = false
