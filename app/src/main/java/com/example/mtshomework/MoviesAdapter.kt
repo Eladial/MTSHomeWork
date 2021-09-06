@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.bumptech.glide.Glide
+import kotlin.math.roundToInt
 
 class MoviesAdapter(context: Context,
                     private val moviesListener: (Long) -> Unit,
@@ -21,7 +21,7 @@ class MoviesAdapter(context: Context,
         return ViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
     }
 
-    private fun getItem(position: Int): Movie? = moviesViewModel.movies.value?.get(position)
+    private fun getItem(position: Int): MovieResponse? = moviesViewModel.movies.value?.get(position)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let { holder.bind(it, moviesListener) }
@@ -34,10 +34,10 @@ class MoviesAdapter(context: Context,
         } else 0
     }
 
-    fun getMovies(): List<Movie>? = moviesViewModel.movies.value
+    fun getMovies(): List<MovieResponse>? = moviesViewModel.movies.value
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setMovies(new: List<Movie>) {
+    fun setMovies(new: List<MovieResponse>?) {
         notifyDataSetChanged()
     }
 
@@ -45,7 +45,6 @@ class MoviesAdapter(context: Context,
         private val textTitle: TextView = view.findViewById(R.id.tv_film_name)
         private val textDescription: TextView = view.findViewById(R.id.tv_film_description)
         private val iconPoster: ImageView = view.findViewById(R.id.iv_film_poster)
-        private val textAge: TextView = view.findViewById(R.id.tvRating)
         private val iconStarOne: ImageView = view.findViewById(R.id.ivStarOne)
         private val iconStarTwo: ImageView = view.findViewById(R.id.ivStarTwo)
         private val iconStarThree: ImageView = view.findViewById(R.id.ivStarThree)
@@ -54,16 +53,16 @@ class MoviesAdapter(context: Context,
 
 
         @SuppressLint("SetTextI18n")
-        fun bind(movie: Movie, moviesListener: (Long) -> Unit) {
-            iconPoster.load(movie.imageUrl)
+        fun bind(movie: MovieResponse, moviesListener: (Long) -> Unit) {
+            Glide.with(iconPoster).load("https://image.tmdb.org/t/p/w500" + movie.posterPath).into(iconPoster)
             textTitle.text = movie.title
-            textDescription.text = movie.description
-            textAge.text = movie.ageRestriction.toString() + itemView.resources.getString(R.string.plus)
+            textDescription.text = movie.overview
 
             itemView.setOnClickListener {
-                moviesListener(movie.id!!)
+                moviesListener(movie.id)
             }
-            when (movie.rateScore){
+            val rateScore = (movie.voteAverage / 2).roundToInt()
+            when (rateScore){
                 5 -> {
                     iconStarFive.setImageResource(R.drawable.ic_star)
                     iconStarFour.setImageResource(R.drawable.ic_star)
